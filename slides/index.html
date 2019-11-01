@@ -33,6 +33,10 @@
 
         .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
         }
+
+        iframe {
+            background-color: white;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +59,7 @@ null safety, immutability (val), data class, default arguments / named arguments
     <div class="slides">
         <section>
             <h1>Introduction à Kotlin</h1>
+            <img src="images/kotlin-logo.png" alt="Kotlin logo" width="300px" height="225px" style="background: none; border: none; box-shadow: none;"/>
             <p>
                 Kevin Caro Silva, Sofiane Daoud
             </p>
@@ -76,48 +81,45 @@ null safety, immutability (val), data class, default arguments / named arguments
             </section>
             <section>
                 <h3>Langage de programmation open-source, développé par JetBrains.</h3>
-                <br/>
+                <div>
+                    <img src="images/jetbrains_logo.png" alt="Jetbrains logo" width="250px" height="250px" style="background: none; border: none; box-shadow: none;">
+                </div>
                 <ul>
-                    <li>
-                        <p class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Compilable en bytecode JVM, Javascript, et code natif (scriptable aussi)
-                        </p>
+                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Compilable en bytecode JVM, Javascript, et code natif (scriptable aussi)
                     </li>
-                    <li>
-                        <p class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Interopérable à 100% avec Java
-                        </p>
+                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Interopérable à 100% avec Java
                         <aside class="notes">
                             (Note de speaker) on peut utiliser java et kotlin dans le meme projet
                         </aside>
                     </li>
-                    <li>
-                        <p class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Multi-paradigme, OOP + FP, avec types statiques & inférés
-                        </p>
+                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Multi-paradigme, OOP + FP, avec types statiques & inférés
                     </li>
-                    <li>
-                        <p class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Langage moderne, avec syntaxe plus concise, sécuritaire (null safe) et explicite là où il le faut
-                        </p>
+                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Langage moderne, avec syntaxe plus concise, sécuritaire (null safe) et explicite là où il le
+                        faut
                     </li>
-                    <li>
-                        <p class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Supporté dans Spring Framework 5 et Spring Boot 2, et par Google pour Android
-                        </p>
+                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Supporté dans Spring Framework 5 et Spring Boot 2, et par Google pour Android
                     </li>
                 </ul>
             </section>
             <section>
-                <h1>Pourquoi Kotlin?</h1>
+                <h2>Pourquoi Kotlin?</h2>
                 <blockquote style="font-size: 2rem">
-                    <p>First and foremost, it’s about our own productivity. <br/> Although we’ve developed support for several JVM-targeted
-                        programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely in Java.</p>
-                    <p>[...] We want to
-                        become more productive by switching to a more expressive language. At the same time, we cannot accept compromises in terms of
+                    <p class="fragment fade-in">First and foremost, it’s about our own productivity. <br/> Although we’ve developed support for
+                        several JVM-targeted
+                        programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely in
+                        Java.</p>
+                    <p class="fragment fade-in">[...] We want to
+                        become more productive by switching to a more expressive language. At the same time, we cannot
+                        accept compromises in terms of
                         either Java interoperability [...] or compilation speed</p>
                 </blockquote>
-                <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why JetBrains needs Kotlin</a>
+                <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why
+                    JetBrains needs Kotlin</a>
             </section>
         </section>
         <section>
@@ -176,8 +178,18 @@ null safety, immutability (val), data class, default arguments / named arguments
 
                     Vous pouvez aussi générer un projet Spring Boot en Kotlin, avec le starter officiel de Pivotal.
 
-                    <a href="https://kotlinlang.org/docs/reference/">Documentation</a> et <a href="https://kotlinlang.org/docs/tutorials/">tutoriels</a>  officiels.
+                    <a href="https://kotlinlang.org/docs/reference/">Documentation</a> et <a
+                            href="https://kotlinlang.org/docs/tutorials/">tutoriels</a>  officiels.
                 </script>
+            </section>
+            <section data-background-iframe="https://start.spring.io/" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <h2>Supporté par Spring</h2>
+                    <p>Vous pouvez générer un projet Kotlin Spring Boot 2 avec le générateur de Pivotal.</p>
+                    <p>https://start.spring.io/</p>
+                </div>
+            </section>
+            <section data-background-iframe="https://play.kotlinlang.org/koans/" data-background-interactive>
             </section>
         </section>
     </div>
