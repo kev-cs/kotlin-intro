@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,6 +8,7 @@
     <title>Introduction à Kotlin</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css">
 
@@ -31,16 +33,18 @@
             position: relative;
         }
 
-        .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
-        }
+        .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {}
 
         iframe {
             background-color: white;
         }
     </style>
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector=".kotlin-code"></script>
+
 </head>
+
 <body>
-<!--
+    <!--
 NOTES
 
 Les principales foncts utiles
@@ -55,94 +59,210 @@ null safety, immutability (val), data class, default arguments / named arguments
 
 ? : est-ce que c'est facile cloner des objets dans kotlin (copy: a tester)
 -->
-<div class="reveal">
-    <div class="slides">
-        <section>
-            <h1>Introduction à Kotlin</h1>
-            <img src="images/kotlin-logo.png" alt="Kotlin logo" width="300px" height="225px" style="background: none; border: none; box-shadow: none;"/>
-            <p>
-                Kevin Caro Silva, Sofiane Daoud
-            </p>
-        </section>
-        <section>
-            <h2>Agenda</h2>
-            <ol>
-                <li>Qu’est-ce que Kotlin?</li>
-                <li>Différences notables avec Java</li>
-                <li>Les principales fonctionnalités utiles</li>
-                <li>Comparaison de base avec autres langages JVM (TODO maybe?)</li>
-                <li>Kotlin et Spring (TODO maybe?)</li>
-                <li>Comment commencer avec Kotlin</li>
-            </ol>
-        </section>
-        <section>
+    <div class="reveal">
+        <div class="slides">
             <section>
-                <h1>Qu'est-ce que kotlin?</h1>
+                <h1>Introduction à Kotlin</h1>
+                <img src="images/kotlin-logo.png" alt="Kotlin logo" width="300px" height="225px"
+                    style="background: none; border: none; box-shadow: none;" />
+                <p>
+                    Kevin Caro Silva, Sofiane Daoud
+                </p>
             </section>
             <section>
-                <h3>Langage de programmation open-source, développé par JetBrains.</h3>
-                <div>
-                    <img src="images/jetbrains_logo.png" alt="Jetbrains logo" width="250px" height="250px" style="background: none; border: none; box-shadow: none;">
-                </div>
-                <ul>
-                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                        Compilable en bytecode JVM, Javascript, et code natif (scriptable aussi)
-                    </li>
-                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                        Interopérable à 100% avec Java
-                        <aside class="notes">
-                            (Note de speaker) on peut utiliser java et kotlin dans le meme projet
-                        </aside>
-                    </li>
-                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                        Multi-paradigme, OOP + FP, avec types statiques & inférés
-                    </li>
-                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                        Langage moderne, avec syntaxe plus concise, sécuritaire (null safe) et explicite là où il le
-                        faut
-                    </li>
-                    <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                        Supporté dans Spring Framework 5 et Spring Boot 2, et par Google pour Android
-                    </li>
-                </ul>
+                <h2>Agenda</h2>
+                <ol>
+                    <li>Qu’est-ce que Kotlin?</li>
+                    <li>Différences notables avec Java</li>
+                    <li>Les principales fonctionnalités utiles</li>
+                    <li>Comparaison de base avec autres langages JVM (TODO maybe?)</li>
+                    <li>Kotlin et Spring (TODO maybe?)</li>
+                    <li>Comment commencer avec Kotlin</li>
+                </ol>
             </section>
             <section>
-                <h2>Pourquoi Kotlin?</h2>
-                <blockquote style="font-size: 2rem">
-                    <p class="fragment fade-in">First and foremost, it’s about our own productivity. <br/> Although we’ve developed support for
-                        several JVM-targeted
-                        programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely in
-                        Java.</p>
-                    <p class="fragment fade-in">[...] We want to
-                        become more productive by switching to a more expressive language. At the same time, we cannot
-                        accept compromises in terms of
-                        either Java interoperability [...] or compilation speed</p>
-                </blockquote>
-                <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why
-                    JetBrains needs Kotlin</a>
+                <section>
+                    <h1>Qu'est-ce que kotlin?</h1>
+                </section>
+                <section>
+                    <h4>Langage de programmation open-source, développé par JetBrains.</h4>
+                    <div>
+                        <img src="images/jetbrains_logo.png" alt="Jetbrains logo" width="150px" height="150px"
+                            style="background: none; border: none; box-shadow: none;">
+                    </div>
+                    <ul>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Interopérable à 100% avec Java
+                            <aside class="notes">
+                                (Note de speaker) on peut utiliser java et kotlin dans le meme projet
+                            </aside>
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Multi-paradigme, OOP + FP, avec types statiques & inférés
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Langage moderne, avec syntaxe plus concise, sécuritaire (null safe) et explicite là où il le
+                            faut
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Inspiré de plusieurs langages modernes tel que :
+                            <div style="display: flex; justify-content: space-around;">
+                                <img src="images/groovy-logo.png" alt="Jetbrains logo" width="auto" height="150px"
+                                    style="background: none; border: none; box-shadow: none;">
+                                <img src="images/c-sharp-logo.svg" alt="Jetbrains logo" width="auto" height="150px"
+                                    style="background: none; border: none; box-shadow: none;">
+                                <img src="images/scala-logo.png" alt="Jetbrains logo" width="auto" height="150px"
+                                    style="background: none; border: none; box-shadow: none;">
+                            </div>
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Supporté dans Spring Framework 5 et Spring Boot 2, et par Google pour Android
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Pourquoi Kotlin?</h2>
+                    <blockquote style="font-size: 2rem">
+                        <p class="fragment fade-in">First and foremost, it’s about our own productivity. <br /> Although
+                            we’ve developed support for
+                            several JVM-targeted
+                            programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely
+                            in
+                            Java.</p>
+                        <p class="fragment fade-in">[...] We want to
+                            become more productive by switching to a more expressive language. At the same time, we
+                            cannot
+                            accept compromises in terms of
+                            either Java interoperability [...] or compilation speed</p>
+                    </blockquote>
+                    <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why
+                        JetBrains needs Kotlin</a>
+                </section>
             </section>
-        </section>
-        <section>
-            <section><h1>Différences notables avec Java</h1></section>
-            <section data-markdown>
-                <script type="text/template">
-                    ## Quelques points pour aider à s’ajuster rapidement à la syntaxe de Kotlin.
-                    - fun pour une fonction
-                    - val pour une constante, var pour une variable
-                    - arguments d’une fonction en pascal notation
-                    - void -> Unit
-                    - pas de ;
-                    - pas de new
-                    - classes et méthodes sont public par défaut
-                    - les lambdas sont déclarés avec { }
-                    - types inférrés
-                </script>
+            <section>
+                <section>
+                    <h2>Notions de base</hé>
+                </section>
+                <section>
+                    <h4>Hello comptoir</h4>
+                    <div>
+                        <pre><code class="kotlin">
+// Java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello "+args[0]+"!");
+    }
+}
+// Kotlin
+fun main(args: Array&lt;String&gt;) {
+    println("Hello ${args[0]}!")
+}
+                        </code></pre>
+                    </div>
+                    <aside class="notes">
+                        fun pour declarer une fonction / parametres en pascal notation
+                    </aside>
+                </section>
+                <section>
+                    <h4>focntion simple</h4>
+                    <div>
+                        <pre><code class="kotlin">
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+                            </code></pre>
+                    </div>
+                    <div class="fragment">
+                        <p>Peut aussi s'ecrire en expression</p>
+                        <pre><code class="kotlin">
+fun sum(a: Int, b: Int) = a + b
+                            </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h4>declaration de variable / constante</h4>
+                    <div>
+                        <pre><code class="kotlin">
+val a: Int = 1 // declaration de constante de type Int
+val b = 2      // type `Int` est inferé 
+val c: Int     // type requis quand on initialise pas la variable / constante
+c = 3          // assignement diferé
+var x = 5      // declaration de variable `Int` type is inferred
+                            </code></pre>
+                    </div>
+
+                    <aside class="notes">
+                        val / var, types inférés
+                    </aside>
+                </section>
+                <section>
+                    <h4>Unit vs void</h4>
+                    <div>
+                        <pre><code class="kotlin">
+fun neRetournRien(): Unit {
+    // faire quelque chose
+}
+fun neRetournRien2() { // sont equivalente
+    // faire autre chose
+}
+                            </code></pre>
+                    </div>
+                    <div class="fragment fade-in">
+                        <pre><code class="kotlin">
+interface DataProcessor&lt;T&gt; {
+    fun processData(): T
+}
+class NoResultDataProcessor : DataProcessor&lt;Unit&gt; { 
+    override fun processData() {
+        ...
+        // on n'a pas besoin de retourner quelque chose
+    }
+}
+                                </code></pre>
+                    </div>
+                    <aside class="notes">
+                        Void / unit, avantage
+                    </aside>
+                </section>
+                <section>
+                    <h4>data class</h4>
+                    <div>
+                        <pre><code class="kotlin">
+    
+                        </code></pre>
+                    </div>
+                    <div class="fragment fade-in">
+                        <pre><code class="kotlin">
+    interface DataProcessor&lt;T&gt; {
+        fun processData(): T
+    }
+    class NoResultDataProcessor : DataProcessor&lt;Unit&gt; { 
+        override fun processData() {
+            ...
+            // on n'a pas besoin de retourner quelque chose
+        }
+    }
+                                    </code></pre>
+                    </div>
+                    <aside class="notes">
+                        Void / unit, avantage
+                    </aside>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Quelques points pour aider à s’ajuster rapidement à la syntaxe de Kotlin.
+                        - pas de new
+                        - classes et méthodes sont public par défaut
+                        - les lambdas sont déclarés avec { }
+                    </script>
+                </section>
             </section>
-        </section>
-        <section>
-            <section><h1>Les principales fonctionnalités útiles</h1></section>
-            <section data-markdown>
-                <script type="text/template">
+            <section>
+                <section>
+                    <h1>Les principales fonctionnalités utiles</h1>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
                     - expressions (over statements)
                     - immutability (val)
                     - null safety
@@ -159,15 +279,17 @@ null safety, immutability (val), data class, default arguments / named arguments
                     - laziness
                     - type aliases
                 </script>
+                </section>
             </section>
-        </section>
-        <section>
-            <h1>Kotlin et Spring (TODO maybe?)</h1>
-        </section>
-        <section>
-            <section><h1>Comment commencer avec Kotlin</h1></section>
-            <section data-markdown>
-                <script type="text/template">
+            <section>
+                <h1>Kotlin et Spring (TODO maybe?)</h1>
+            </section>
+            <section>
+                <section>
+                    <h1>Comment commencer avec Kotlin</h1>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
                     - Les outils nécessaires sont inclus dans IntelliJ IDEA par défaut
                     - Plugins et support disponible pour Eclipse
                     - Maven et Gradle sont supportés
@@ -181,35 +303,37 @@ null safety, immutability (val), data class, default arguments / named arguments
                     <a href="https://kotlinlang.org/docs/reference/">Documentation</a> et <a
                             href="https://kotlinlang.org/docs/tutorials/">tutoriels</a>  officiels.
                 </script>
+                </section>
+                <section data-background-iframe="https://start.spring.io/" data-background-interactive>
+                    <div
+                        style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h2>Supporté par Spring</h2>
+                        <p>Vous pouvez générer un projet Kotlin Spring Boot 2 avec le générateur de Pivotal.</p>
+                        <p>https://start.spring.io/</p>
+                    </div>
+                </section>
+                <section data-background-iframe="https://play.kotlinlang.org/koans/" data-background-interactive>
+                </section>
             </section>
-            <section data-background-iframe="https://start.spring.io/" data-background-interactive>
-                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-                    <h2>Supporté par Spring</h2>
-                    <p>Vous pouvez générer un projet Kotlin Spring Boot 2 avec le générateur de Pivotal.</p>
-                    <p>https://start.spring.io/</p>
-                </div>
-            </section>
-            <section data-background-iframe="https://play.kotlinlang.org/koans/" data-background-interactive>
-            </section>
-        </section>
+        </div>
     </div>
-</div>
 
-<script src="js/reveal.js"></script>
+    <script src="js/reveal.js"></script>
 
-<script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
-    Reveal.initialize({
-        history: true,
-        dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
-            {src: 'plugin/highlight/highlight.js', async: true}
-        ]
-    });
-</script>
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            history: true,
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true }
+            ]
+        });
+    </script>
 </body>
+
 </html>
