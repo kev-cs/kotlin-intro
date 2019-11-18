@@ -75,8 +75,10 @@ null safety, immutability (val), data class, default arguments / named arguments
                     <li>Qu’est-ce que Kotlin?</li>
                     <li>Différences notables avec Java</li>
                     <li>Les principales fonctionnalités utiles</li>
+<!--
                     <li>Comparaison de base avec autres langages JVM (TODO maybe?)</li>
-                    <li>Kotlin et Spring (TODO maybe?)</li>
+-->
+                    <li>Kotlin et Spring</li>
                     <li>Comment commencer avec Kotlin</li>
                 </ol>
             </section>
@@ -92,7 +94,22 @@ null safety, immutability (val), data class, default arguments / named arguments
                     </div>
                     <ul>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Interopérable à 100% avec Java
+                            Interopérable à
+                            <a href="https://kotlinlang.org/docs/reference/faq.html#is-kotlin-compatible-with-the-java-programming-language">
+                                100% avec Java
+                            </a>
+                            <br/>
+                            <small>
+                                (
+                                <a href="https://kotlinlang.org/docs/reference/java-interop.html">
+                                    Calling Java from Kotlin
+                                </a>
+                                ,
+                                <a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html">
+                                    Calling Kotlin from Java
+                                </a>
+                                )
+                            </small>
                             <aside class="notes">
                                 (Note de speaker) on peut utiliser java et kotlin dans le meme projet
                             </aside>
@@ -102,14 +119,6 @@ null safety, immutability (val), data class, default arguments / named arguments
                             <aside class="notes">
                                 Fonctions sont des first class citizens
                             </aside>
-                        </li>
-                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Langage moderne, avec syntaxe plus concise, sécuritaire (null safe) et explicite là où il le
-                            faut
-                            <aside class="notes">
-                                expressions (over statements)
-                            </aside>
-
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Inspiré de plusieurs langages modernes tel que :
@@ -123,7 +132,25 @@ null safety, immutability (val), data class, default arguments / named arguments
                             </div>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
-                            Supporté dans Spring Framework 5 et Spring Boot 2, et par Google pour Android
+                            Langage moderne, avec une syntaxe plus
+                            <ul style="list-style-type: circle">
+                                <li>Concise</li>
+                                <li>sécuritaire (null safe)</li>
+                                <li>explicite là où nécessaire</li>
+                            </ul>
+                            <aside class="notes">
+                                expressions (over statements)
+                            </aside>
+
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Supporté dans Spring Framework 5, Spring Boot 2, et par Google pour Android
+                            <div style="display: flex; justify-content: space-around;">
+                                <img src="images/spring-logo.png" alt="Jetbrains logo" width="auto" height="100px"
+                                     style="background: none; border: none; box-shadow: none;">
+                                <img src="images/android-logo.png" alt="Jetbrains logo" width="auto" height="100px"
+                                     style="background: none; border: none; box-shadow: none;">
+                            </div>
                         </li>
                     </ul>
                 </section>
@@ -154,18 +181,20 @@ null safety, immutability (val), data class, default arguments / named arguments
                 <section>
                     <h4>Hello comptoir</h4>
                     <div>
-                        <pre><code class="kotlin">
+ <pre><code class="kotlin" data-noescape>
 // Java
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello " + args[0] + "!");
     }
 }
+
 // Kotlin
 fun main(args: Array&lt;String&gt;) {
     println("Hello ${args[0]}!")
 }
-                        </code></pre>
+
+</code></pre>
                     </div>
                     <aside class="notes">
                         fun pour declarer une fonction
@@ -173,7 +202,6 @@ fun main(args: Array&lt;String&gt;) {
                 </section>
                 <section>
                     <h4>fonction simple</h4>
-                    <div>TODO nested functions</div>
                     <div>
                         <pre><code class="kotlin">
 fun sum(a: Int, b: Int): Int {
@@ -181,11 +209,22 @@ fun sum(a: Int, b: Int): Int {
 }
                             </code></pre>
                     </div>
-                    <div class="fragment">
-                        <p>Peut aussi s'ecrire en expression</p>
+                    <div class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Peut aussi s'ecrire en expression
                         <pre><code class="kotlin">
 fun sum(a: Int, b: Int) = a + b
                             </code></pre>
+                    </div>
+                    <div class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                        Peut aussi être <strong>imbriquée</strong>
+                        <pre><code class="kotlin">
+fun callNestedFunction() {
+    fun imNested() {
+        print("Hi nested, I'm callNestedFunction")
+    }
+    imNested()
+}
+                        </code></pre>
                     </div>
 
                     <aside class="notes">
@@ -240,7 +279,7 @@ class NoResultDataProcessor : DataProcessor&lt;Unit&gt; {
                 <section>
                     <h4>constructeur</h4>
                     <div>
-                        <div class="fragment step-fade-in-then-out fade-out">
+                        <div class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             <pre><code class="kotlin">
 class Person {
     val nom: String
@@ -255,9 +294,11 @@ class Person {
 }
                         </code></pre>
                         </div>
-                        <div class="fragment step-fade-in-then-out fade-in" style>
+                        <div class="fragment step-fade-in-then-out fade-left" style>
                             <pre><code class="kotlin">
-class Person(val nom: String, val prenom: String, var age: Int = 0)
+class Person(val nom: String,
+             val prenom: String,
+             var age: Int = 0)
                         </code></pre>
                             <div class="fragment fade-in" style>
                                 <pre><code class="kotlin">
@@ -272,18 +313,15 @@ fun main() {
                 </section>
                 <section>
                     <h4>lambdas</h4>
-                    <div>
-                        <pre><code class="kotlin">
-val incrementer = { i: Int -> i + 1 }
-var multiplier: (Int, Int) -> Int
-multiplier = { i1, i2 -> i1 * i2 }
+<pre style="box-shadow: none;"><code class="kotlin">
+val incrementer = { i: Int -> i + 1 }</code><code class="kotlin fragment fade-in">var multiplier: (Int, Int) -> Int
+multiplier = { i1, i2 -> i1 * i2 }</code><code class="fragment fade-in">print(incrementer(5) - multiplier(2, 3))
 
-print(incrementer(5) - multiplier(2, 3))
 </code>
-<code>
-listOf(1, 2, 3, 5, 8, 13).reduce { acc, i -> acc + i }
-                            </code></pre>
-                    </div>
+<code class="fragment fade-in">
+listOf(1, 2, 3, 5, 8, 13).reduce { acc, i -> acc + i }</code><code class="fragment fade-in">generateSequence(0, { it + 1 }).take(5).forEach { print(it) }
+
+</code></pre>
                     <aside class="notes">
                         - les lambdas sont déclarés avec { }
                     </aside>
@@ -338,7 +376,7 @@ null safety, immutability (val), data class, default arguments / named arguments
                     - Maven et Gradle sont supportés
                     - IntelliJ inclut un convertisseur entre code Java/Kotlin
                     - Utiliser le REPL, faire des scripts Kotlin, ou utiliser les Scratches de IntelliJ pour vous pratiquer facilement
-                    
+
                     <aside class="notes">
                         Avec un build tool, il faut seulement inclure quelques dépendances et plugins.
                     </aside>
@@ -355,9 +393,9 @@ null safety, immutability (val), data class, default arguments / named arguments
                         <p>https://start.spring.io/</p>
                     </div>
                 </section>
-                <section data-background-iframe="https://play.kotlinlang.org/koans/" data-background-interactive>
+                <section data-background-iframe="https://play.kotlinlang.org/" data-background-interactive>
                 </section>
-                <section data-background-iframe="https://google.com" data-background-interactive>
+                <section data-background-iframe="https://lmgtfy.com/?q=kotlin+documentation" data-background-interactive>
                 </section>
             </section>
         </div>
