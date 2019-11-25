@@ -87,6 +87,30 @@ null safety, immutability (val), data class, default arguments / named arguments
                     <h1>Qu'est-ce que kotlin?</h1>
                 </section>
                 <section>
+                    <h2>Pourquoi Kotlin?</h2>
+                    <blockquote style="font-size: 2rem">
+                        <p>First and foremost, it’s about our own productivity. <br /> Although
+                            we’ve developed support for
+                            several JVM-targeted
+                            programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely
+                            in
+                            Java.</p>
+                        <p>[...] We want to
+                            become more productive by switching to a more expressive language. At the same time, we
+                            cannot
+                            accept compromises in terms of
+                            either Java interoperability [...] or compilation speed</p>
+                    </blockquote>
+                    <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why
+                        JetBrains needs Kotlin</a>
+                    <aside class="notes">
+                        - etre plus productif, tout en travaillant avec des outils Java / JVM, sans
+                        sacrifier l'interoperabilite avec java.
+                        JetBrains travaille aevc beaucoup de langages bases sur la JVM. Ces outils permettent d'etre
+                        plus productif, mais aucun est entierement interoperable avec Java.
+                    </aside>
+                </section>
+                <section>
                     <h4>Langage de programmation open-source, développé par JetBrains.</h4>
                     <div>
                         <img src="images/jetbrains_logo.png" alt="Jetbrains logo" width="150px" height="150px"
@@ -94,13 +118,17 @@ null safety, immutability (val), data class, default arguments / named arguments
                     </div>
                     <ul>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
+                            Compilable en <strong>bytecode JVM</strong>, en <strong>Javascript</strong>, et en <strong>natif</strong>.
+                            Peut aussi être utilisé pour faire des <strong>scripts</strong>.
+                        </li>
+                        <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Interopérable à
                             <a href="https://kotlinlang.org/docs/reference/faq.html#is-kotlin-compatible-with-the-java-programming-language">
                                 100% avec Java
                             </a>
                             <br/>
                             <small>
-                                (
+                                Voir
                                 <a href="https://kotlinlang.org/docs/reference/java-interop.html">
                                     Calling Java from Kotlin
                                 </a>
@@ -108,7 +136,6 @@ null safety, immutability (val), data class, default arguments / named arguments
                                 <a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html">
                                     Calling Kotlin from Java
                                 </a>
-                                )
                             </small>
                             <aside class="notes">
                                 (Note de speaker) on peut utiliser java et kotlin dans le meme projet
@@ -117,7 +144,11 @@ null safety, immutability (val), data class, default arguments / named arguments
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Multi-paradigme, OOP + FP, avec types statiques & inférés
                             <aside class="notes">
-                                Fonctions sont des first class citizens
+                                Fonctions sont des first class citizens <br>
+                                FCC : une entite qui supporte toutes les operations generallement disponibles
+                                aux autres entites. <br>
+                                Par exemple : peuvent etre passe en argument, retourne d'une fonction, peut etre
+                                modifie, assigne a une variable
                             </aside>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
@@ -134,7 +165,7 @@ null safety, immutability (val), data class, default arguments / named arguments
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Langage moderne, avec une syntaxe plus
                             <ul style="list-style-type: circle">
-                                <li>Concise</li>
+                                <li>concise</li>
                                 <li>sécuritaire (null safe)</li>
                                 <li>explicite là où nécessaire</li>
                             </ul>
@@ -153,24 +184,6 @@ null safety, immutability (val), data class, default arguments / named arguments
                             </div>
                         </li>
                     </ul>
-                </section>
-                <section>
-                    <h2>Pourquoi Kotlin?</h2>
-                    <blockquote style="font-size: 2rem">
-                        <p class="fragment fade-in">First and foremost, it’s about our own productivity. <br /> Although
-                            we’ve developed support for
-                            several JVM-targeted
-                            programming languages, we are still writing all of our IntelliJ-based IDEs almost entirely
-                            in
-                            Java.</p>
-                        <p class="fragment fade-in">[...] We want to
-                            become more productive by switching to a more expressive language. At the same time, we
-                            cannot
-                            accept compromises in terms of
-                            either Java interoperability [...] or compilation speed</p>
-                    </blockquote>
-                    <a href="https://blog.jetbrains.com/kotlin/2011/08/why-jetbrains-needs-kotlin/">JetBrains - Why
-                        JetBrains needs Kotlin</a>
                 </section>
             </section>
             <section>
@@ -303,7 +316,7 @@ class Person(val nom: String,
                             <div class="fragment fade-in" style>
                                 <pre><code class="kotlin">
 fun main() {
-    val person = Person("doe", prenom = "john")
+    val person = Person(prenom = "john", nom = "doe")
     println("nom: ${person.nom}, prenom: ${person.prenom}")
 }
                                 </code></pre>
@@ -361,6 +374,25 @@ null safety, immutability (val), data class, default arguments / named arguments
                     - laziness
                 </script>
                 </section>
+                <section>
+                    <h1>Null safety</h1>
+                    <pre><code class="" data-trim data-line-numbers="4,8-11">
+import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+					</code></pre>
+                </section>
             </section>
             <section>
                 <h1>Kotlin et Spring (TODO maybe?)</h1>
@@ -377,13 +409,13 @@ null safety, immutability (val), data class, default arguments / named arguments
                     - IntelliJ inclut un convertisseur entre code Java/Kotlin
                     - Utiliser le REPL, faire des scripts Kotlin, ou utiliser les Scratches de IntelliJ pour vous pratiquer facilement
 
+
+                    <a href="https://kotlinlang.org/docs/reference/">Documentation</a> et
+                    <a href="https://kotlinlang.org/docs/tutorials/">tutoriels</a>  officiels.
+                    </script>
                     <aside class="notes">
                         Avec un build tool, il faut seulement inclure quelques dépendances et plugins.
                     </aside>
-
-                    <a href="https://kotlinlang.org/docs/reference/">Documentation</a> et <a
-                            href="https://kotlinlang.org/docs/tutorials/">tutoriels</a>  officiels.
-                </script>
                 </section>
                 <section data-background-iframe="https://start.spring.io/" data-background-interactive>
                     <div
@@ -395,8 +427,10 @@ null safety, immutability (val), data class, default arguments / named arguments
                 </section>
                 <section data-background-iframe="https://play.kotlinlang.org/" data-background-interactive>
                 </section>
-                <section data-background-iframe="https://lmgtfy.com/?q=kotlin+documentation" data-background-interactive>
-                </section>
+            </section>
+            <section>
+                <h1>Fin</h1>
+                <h3>Questions? Commentaires?</h3>
             </section>
         </div>
     </div>
