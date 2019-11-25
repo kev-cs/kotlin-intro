@@ -75,9 +75,6 @@ null safety, immutability (val), data class, default arguments / named arguments
                     <li>Qu’est-ce que Kotlin?</li>
                     <li>Différences notables avec Java</li>
                     <li>Les principales fonctionnalités utiles</li>
-<!--
-                    <li>Comparaison de base avec autres langages JVM (TODO maybe?)</li>
--->
                     <li>Kotlin et Spring</li>
                     <li>Comment commencer avec Kotlin</li>
                 </ol>
@@ -108,6 +105,8 @@ null safety, immutability (val), data class, default arguments / named arguments
                         sacrifier l'interoperabilite avec java.
                         JetBrains travaille aevc beaucoup de langages bases sur la JVM. Ces outils permettent d'etre
                         plus productif, mais aucun est entierement interoperable avec Java.
+                        <br>
+                        kev
                     </aside>
                 </section>
                 <section>
@@ -120,6 +119,9 @@ null safety, immutability (val), data class, default arguments / named arguments
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Compilable en <strong>bytecode JVM</strong>, en <strong>Javascript</strong>, et en <strong>natif</strong>.
                             Peut aussi être utilisé pour faire des <strong>scripts</strong>.
+                            <aside class="notes">
+                                sofiane
+                            </aside>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Interopérable à
@@ -139,6 +141,8 @@ null safety, immutability (val), data class, default arguments / named arguments
                             </small>
                             <aside class="notes">
                                 (Note de speaker) on peut utiliser java et kotlin dans le meme projet
+                                <br>
+                                sofiane
                             </aside>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
@@ -149,6 +153,8 @@ null safety, immutability (val), data class, default arguments / named arguments
                                 aux autres entites. <br>
                                 Par exemple : peuvent etre passe en argument, retourne d'une fonction, peut etre
                                 modifie, assigne a une variable
+                                <br>
+                                sofiane
                             </aside>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
@@ -161,6 +167,9 @@ null safety, immutability (val), data class, default arguments / named arguments
                                 <img src="images/scala-logo.png" alt="Jetbrains logo" width="auto" height="150px"
                                     style="background: none; border: none; box-shadow: none;">
                             </div>
+                            <aside class="notes">
+                                kev
+                            </aside>
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Langage moderne, avec une syntaxe plus
@@ -171,8 +180,9 @@ null safety, immutability (val), data class, default arguments / named arguments
                             </ul>
                             <aside class="notes">
                                 expressions (over statements)
+                                <br>
+                                kev
                             </aside>
-
                         </li>
                         <li class="fragment step-fade-in-then-out fade-left fade-in-then-out">
                             Supporté dans Spring Framework 5, Spring Boot 2, et par Google pour Android
@@ -182,6 +192,9 @@ null safety, immutability (val), data class, default arguments / named arguments
                                 <img src="images/android-logo.png" alt="Jetbrains logo" width="auto" height="100px"
                                      style="background: none; border: none; box-shadow: none;">
                             </div>
+                            <aside class="notes">
+                                kev
+                            </aside>
                         </li>
                     </ul>
                 </section>
@@ -211,6 +224,8 @@ fun main(args: Array&lt;String&gt;) {
                     </div>
                     <aside class="notes">
                         fun pour declarer une fonction
+                        <br>
+                        sofiane
                     </aside>
                 </section>
                 <section>
@@ -242,6 +257,8 @@ fun callNestedFunction() {
 
                     <aside class="notes">
                         parametre en pascal notation
+                        <br>
+                        sofiane
                     </aside>
                 </section>
                 <section>
@@ -258,6 +275,8 @@ var x = 5      // declaration de variable
 
                     <aside class="notes">
                         val / var, types inférés
+                        <br>
+                        sofiane
                     </aside>
                 </section>
                 <section>
@@ -287,6 +306,8 @@ class NoResultDataProcessor : DataProcessor&lt;Unit&gt; {
                     </div>
                     <aside class="notes">
                         Void / unit, avantage
+                        <br>
+                        kev
                     </aside>
                 </section>
                 <section>
@@ -323,6 +344,9 @@ fun main() {
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        kev
+                    </aside>
                 </section>
                 <section>
                     <h4>lambdas</h4>
@@ -337,6 +361,8 @@ listOf(1, 2, 3, 5, 8, 13).reduce { acc, i -> acc + i }</code><code class="fragme
 </code></pre>
                     <aside class="notes">
                         - les lambdas sont déclarés avec { }
+                        <br>
+                        kev
                     </aside>
                 </section>
             </section>
